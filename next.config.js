@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    reactStrictMode: false,
+    images: {
+      domains: ['lh3.googleusercontent.com', 'firebasestorage.googleapis.com', 'www.google.com', 'avatars.githubusercontent.com',
+            'graph.facebook.com'],
+    },
+  }
 
 module.exports = nextConfig

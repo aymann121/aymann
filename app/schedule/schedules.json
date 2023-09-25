@@ -1,0 +1,70 @@
+{ 
+    "Normal":{
+        "Period 1": ["8:50 AM" , "9:38 AM"],
+        "Period 2": ["9:43 AM","10:31 AM" ] ,
+        "Period 3": ["10:36 AM","11:24 AM" ],
+        "Period 4": 
+            [ "11:29 AM" ,"12:51 PM",
+                {
+                    "A Lunch": { "A Lunch":["11:24 AM","11:57 AM"]},
+                    "B Lunch": { "B Lunch":["11:52 AM","12:23 PM"]},
+                    "C Lunch": { "C Lunch":["12:18 PM","12:51 PM"]}
+                }
+            ],
+        "Period 5": ["12:51 PM","1:39 PM"],
+        "Advisory": ["1:44 PM","2:14 PM" ],
+        "Period 6": ["2:19 PM","3:07 PM" ],
+        "Period 7": ["3:12 PM" ,"4:00 PM" ]
+    },
+
+    "Thursday":{
+        "Period 1": ["8:50 AM" ,"9:35 AM"],
+        "Period 2": ["9:40 AM","10:25 AM" ] ,
+        "Period 3": ["10:30 AM","11:14 AM" ],
+        "Period 4": 
+            [ "11:19 AM" ,"12:38 PM",
+                {
+                    "A Lunch": { "A Lunch":["11:14 AM","11:46 AM"]},
+                    "B Lunch": { "B Lunch":["11:41 AM","12:12 PM"]},
+                    "C Lunch": { "C Lunch":["12:07 PM","12:38 PM"]}
+                }
+            ],
+        "Period 5": ["12:38 PM","1:22 PM"],
+        "Period 6": ["1:27 PM","2:11 PM" ],
+        "Period 7": ["2:16 PM","3:00 PM" ]
+    },
+
+    "2H Delay":{
+        "Period 1": ["10:50 AM" ,"11:25 AM"],
+        "Period 2": ["11:30 AM","12:05 PM" ] ,
+        "Period 4": 
+            [ "12:05 PM" ,"1:28 PM",
+                {
+                    "A Lunch": { "A Lunch":["12:05 PM","12:37 PM"]},
+                    "B Lunch": { "B Lunch":["12:33 PM","1:05 PM"]},
+                    "C Lunch": { "C Lunch":["12:56 PM","1:28 PM"]}
+                }
+            ],
+        "Period 3": ["1:33 PM","2:06 PM" ],
+        "Period 5": ["2:11 PM","2:44 PM"],
+        "Period 6": ["2:49 PM","3:22 PM" ],
+        "Period 7": ["3:27 PM" ,"4:00 PM" ]
+    },
+    "2H Early Dismissal":{
+        "Period 1": ["8:50 AM" ,"9:25 AM"],
+        "Period 2": ["9:30 AM","10:05 AM" ] ,
+        "Period 3": ["10:10 AM","10:45 AM" ],
+        "Period 5": ["10:50 AM","11:25 AM"],
+
+        "Period 4": 
+            [ "11:25 AM" ,"12:40 PM",
+                {
+                    "A Lunch": { "A Lunch":["11:25 AM","11:55 AM"]},
+                    "B Lunch": { "B Lunch":["11:50 AM","12:20 PM"]},
+                    "C Lunch": { "C Lunch":["12:15 PM","12:40 PM"]}
+                }
+            ],
+        "Period 6": ["12:45 PM","1:20 PM" ],
+        "Period 7": ["1:25 PM" ,"2:00 PM" ]
+    }
+}
