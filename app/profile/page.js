@@ -10,10 +10,13 @@ export default function Profile(){
   const { user, logOut } = UserAuth();
   
   const router = useRouter();
-  if(!user) router.push('/login')
+
+  useEffect(()=>{
+    if(!user) router.push('/login')
+  },[])
   const handleLogOut = () => {
-    router.push('/')
     logOut()
+    router.push('/')
   };
 
   return (
