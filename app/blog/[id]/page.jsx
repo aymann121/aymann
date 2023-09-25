@@ -32,10 +32,9 @@ export default function Page({ params, searchParams }) {
       onSnapshot(q, function(snapshot) {
           setPost(snapshot.docs.map((doc) => { 
             if (doc.data().postNumber == params.id) {
-              console.log(doc.data(), 5)
               return doc.data(); 
             }
-            console.log(post, 6)
+            // console.log(post, 6)
               
               // return <BlogCard postNumber = {post.postNumber} title = {post.title} date={post.date} summary = {post.summary} titleImage = {post.imageUrlTitle} key = {doc.id} timestamp = {post.timestamp} name = {post.name} profilePicUrl = {post.profilePicUrl} /> 
           }));
@@ -58,10 +57,10 @@ export default function Page({ params, searchParams }) {
     //  blogImages: blogImages,
     // });
     if (post){
-      let data = post[0]
+      let data = post[params.id]
       let text = data.text.split('<br>')
-      text = text.map((e)=>{
-        return (<p >{e}<br/><br/></p>)
+      text = text.map((e,i)=>{
+        return (<p key = {i}>{e}<br/><br/></p>)
       })
       
       return  (
@@ -70,9 +69,9 @@ export default function Page({ params, searchParams }) {
             <h1 className = "font-bold text-6xl mt-9">{data.title}</h1>
             <p className = "text-gray-500 text-lg mt-3">{data.summary}</p>
             <p className = "mt-3">{data.date}</p>
-            <p className = "mt-6  m-auto w-8/12 text-lg">{text}</p>
+            <div className = "mt-6  m-auto w-8/12 text-lg">{text}</div>
             <div className = "flex m-auto w-fit"> -  {data.name} 
-              <Image className = " ml-3 mr-3 rounded-full " src = {data.profilePicUrl} width = {33} height = {33}></Image> 
+              <Image alt = "This image failed to laoad" className = " ml-3 mr-3 rounded-full " src = {data.profilePicUrl} width = {33} height = {33}></Image> 
             </div>
           </div>
         </div>)
