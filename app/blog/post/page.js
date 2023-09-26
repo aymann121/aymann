@@ -1,7 +1,7 @@
 "use client"
 import { setRevalidateHeaders } from 'next/dist/server/send-payload';
 import React from 'react'
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 import { useRouter } from 'next/navigation'
 import Router from 'next/router'
 import { getCountFromServer } from 'firebase/firestore';
@@ -134,8 +134,20 @@ export default function Form() {
       console.log(blogImageForms)
       setBlogImageForms(blogImageForms.concat(<input key = {blogImageForms.length} className = "w-56 max-w-4xl border mb-4  h-9 m-auto" onChange={(e)=>{setBlogImages(blogImages.concat(e.target.files[0]))}} type = "file" placeholder = "Title Image" />))
     }
-    if (!user){
-      return <div className = "text-center"> you must be logged in.</div>
+    //see if the current user is authorized
+    let [authorized, setAuthorized] = useState(false);
+    useEffect( () =>{
+      const authorizedUserQuery = query(collection(getFirestore(), 'blogPostUsers'));
+      onSnapshot(authorizedUserQuery, function(snapshot) {
+          snapshot.docs.map((doc) => { 
+              let authorizedUsers = doc.data(); 
+              //if the current user is one of the authorized users set authorized to true
+              authorizedUsers.uuid.map((e)=>{if(user && e == user.uid){setAuthorized(true)}})
+          });
+      });
+    },[])
+    if (!user || !authorized){
+      return <div className = "text-center mt-20"> You are not authorized to make blog posts.</div>
     }
 
     return (
@@ -149,7 +161,7 @@ export default function Form() {
                 </div>
                 <div className = "flex m-auto">
                 <span className = " h-10 mt-5 w-24">Blog Images:</span>
-                <div className = "mt-5 border-2 m-auto w-60 border-black mb-4 rounded-lg" >
+                <div className = "mt-5 m-auto w-60  mb-4 rounded-lg" >
                   
                   
                   {blogImageForms}
@@ -158,9 +170,9 @@ export default function Form() {
                 </div>
                 
                 
-                <input className = " w-64 border-2 border-black rounded-lg mb-4 h-9 m-auto" onChange={(e)=>{setTitle(e.currentTarget.value)}} value = {title} type = "text" placeholder = "Title"></input>
-                <input className = "w-64 border-2 border-black rounded-lg mb-4 h-9 m-auto" onChange={(e)=>{setDate(e.currentTarget.value)}} value = {date} type = "text" placeholder = "Date"></input>
-                <input className = "w-64 border-2 border-black rounded-lg mb-4 h-9 m-auto" onChange={(e)=>{setSummary(e.currentTarget.value)}} value = {summary} type = "text" placeholder = "Summary (Short)"></input>
+                <input className = " w-64 border-2 border-gray-500 rounded-lg mb-4 h-9 m-auto pl-2" onChange={(e)=>{setTitle(e.currentTarget.value)}} value = {title} type = "text" placeholder = "Title"></input>
+                <input className = "w-64 border-2 border-gray-500 rounded-lg mb-4 h-9 m-auto pl-2" onChange={(e)=>{setDate(e.currentTarget.value)}} value = {date} type = "text" placeholder = "Date"></input>
+                <input className = "w-64 border-2 border-gray-500 rounded-lg mb-4 h-9 m-auto pl-2" onChange={(e)=>{setSummary(e.currentTarget.value)}} value = {summary} type = "text" placeholder = "Summary (Short)"></input>
                 <textarea className = "w-8/12 m-auto p-3 max-w-4xl border-2 border-black rounded-lg h-24" onChange={(e)=>{setMessage(e.currentTarget.value)}} value = {message} type = "text" placeholder = "Blog Post"></textarea>
                 <input className = "mt-5 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" type = 'submit' disabled = {!title|| !date || !message || disableSubmit} value = "Submit" />
             </form>
