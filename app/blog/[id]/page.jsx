@@ -7,57 +7,35 @@ import {
     addDoc,
     query,
     orderBy,
-    limit,
     onSnapshot,
-  //  setDoc,
-    updateDoc,
-    doc,
-    serverTimestamp,
-    where,
-    getDoc
+    //setDoc,
+    // updateDoc,
+    // doc,
+    // serverTimestamp,
+    // where,
+    // getDoc
   } from 'firebase/firestore';
 import {
-    getStorage,
-    ref,
-    uploadBytesResumable,
-    getDownloadURL,
+    // getStorage,
+    // ref,
+    // uploadBytesResumable,
+    // getDownloadURL,
   } from 'firebase/storage';
   import { useEffect, useState} from 'react'
 
 export default function Page({ params, searchParams }) {
-  // const dofRef = doc(getFirestore(), "blogPosts", params.id);
-  const [post, setPost] = useState(null)
+  const [posts, setPosts] = useState(null)
   useEffect( () =>{
-    const q = query(collection(getFirestore(), "blogPosts"),  orderBy('timestamp', 'desc'));
+    const q = query(collection(getFirestore(), "blogPosts"),  orderBy('timestamp', 'asc'));
       onSnapshot(q, function(snapshot) {
-          setPost(snapshot.docs.map((doc) => { 
-            if (doc.data().postNumber == params.id) {
-              return doc.data(); 
-            }
-            // console.log(post, 6)
-              
-              // return <BlogCard postNumber = {post.postNumber} title = {post.title} date={post.date} summary = {post.summary} titleImage = {post.imageUrlTitle} key = {doc.id} timestamp = {post.timestamp} name = {post.name} profilePicUrl = {post.profilePicUrl} /> 
-          }));
-          // setPost(post[0])
+          setPosts(snapshot.docs.map((doc) => { return doc.data(); }));
       });
   },[])
     
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    // const blogRef = await setDoc(doc(getFirestore(), 'blogPosts',  "Post "+postNumber), {
-    //   name: user.displayName,
-    //   text: message,
-    //   profilePicUrl: user.photoURL,
-    //   timestamp: serverTimestamp(),
-    //   date: date,
-    //   title: title,
-    //   uid: user.uid,
-    //   summary: summary,
-    //   postNumber: postNumber,
-    //  blogImages: blogImages,
-    // });
-    if (post){
-      let data = post[params.id]
+    // const [loading, setLoading] = useState(true)
+    // const [error, setError] = useState(null)
+    if (posts){
+      let data = posts[params.id-1]
       let text = data.text.split('<br>')
       text = text.map((e,i)=>{
         return (<p key = {i}>{e}<br/><br/></p>)
