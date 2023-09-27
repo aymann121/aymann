@@ -53,7 +53,8 @@ export default function Blog(){
                 Welcome to my blog! 
                 <br/> 
                 Here I'll post about different things that interest me. 
-                <br/>(Whether it be about software or something unrelated)
+                <br/>(I'll try to post something at least once a week.)
+                <br></br>
                 <br/>
              </div>
             <div className = "flex justify-center mt-4 space-x-2  flex-wrap">

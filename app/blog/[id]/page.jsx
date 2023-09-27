@@ -48,7 +48,7 @@ export default function Page({ params, searchParams }) {
             <p className = "text-gray-500 text-lg mt-3">{data.summary}</p>
             <p className = "mt-3">{data.date}</p>
             <div className = "mt-6  m-auto w-8/12 text-lg">{text}</div>
-            <div className = "flex m-auto w-fit"> -  {data.name} 
+            <div className = "flex m-auto w-fit mb-20"> -  {data.name} 
               <Image alt = "This image failed to laoad" className = " ml-3 mr-3 rounded-full " src = {data.profilePicUrl} width = {33} height = {33}></Image> 
             </div>
           </div>
