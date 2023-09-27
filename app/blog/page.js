@@ -27,7 +27,7 @@ import {
 export default function Blog(){
     const {user} = UserAuth()
     let [posts, setPosts] = useState([]);
-    let [authorized, setAuthorized] = useState(false);
+    let [authorizedIds, setAuthorizedIds] = useState();
 
     useEffect( () =>{
         const recentMessagesQuery = query(collection(getFirestore(), 'blogPosts'), orderBy('timestamp', 'desc'));
@@ -42,8 +42,7 @@ export default function Blog(){
         onSnapshot(authorizedUserQuery, function(snapshot) {
             snapshot.docs.map((doc) => { 
                 let authorizedUser = doc.data(); 
-                //if the current user is one of the authorized users set authorized to true
-                authorizedUser.uuid.map((e)=>{if(user && e == user.uid){setAuthorized(true)}})
+                setAuthorizedIds(authorizedUser.uuid)
             });
         });
     },[])
@@ -53,20 +52,19 @@ export default function Blog(){
             <div className = "text-center mt-10">
                 Welcome to my blog! 
                 <br/> 
-                Here I'll post about different things that interest me.
+                Here I'll post about different things that interest me. 
+                <br/>(Whether it be about software or something unrelated)
                 <br/>
              </div>
             <div className = "flex justify-center mt-4 space-x-2  flex-wrap">
-            {/* style this div to be a masonry list */}
-            {/* <div className='columns-1 sm:columns-2 bg-blue-400 max-w-fit lg:columns-3 gap-4 mt-3 space-y-2 m-auto'> */}
-                
+
                 {posts.map((post,i) => {
                     return <span key = {i} className=''>{post}</span>
                 })
                 }
             </div> 
             
-            {authorized ? 
+            {user  && authorizedIds && authorizedIds.includes(user.uid) ?
             <Link href = "/blog/post">
                 <button className="w-16 h-16 rounded-full absolute bottom-10 right-10 bg-blue-500 hover:bg-blue-700 text-white">
                 +
