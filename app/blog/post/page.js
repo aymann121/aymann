@@ -134,7 +134,10 @@ export default function Form() {
       console.log(blogImageForms)
       setBlogImageForms(blogImageForms.concat(<input key = {blogImageForms.length} className = "w-56 max-w-4xl border mb-4  h-9 m-auto" onChange={(e)=>{setBlogImages(blogImages.concat(e.target.files[0]))}} type = "file" placeholder = "Title Image" />))
     }
-    //see if the current user is authorized
+    // see if the current user is authorized
+    /*
+    *** AUTHORIZING USERS IS CURRENTLY DISABLED *** 
+
     let [authorized, setAuthorized] = useState(false);
     useEffect( () =>{
       const authorizedUserQuery = query(collection(getFirestore(), 'blogPostUsers'));
@@ -146,36 +149,48 @@ export default function Form() {
           });
       });
     },[])
-    if (!user || !authorized){
+    if (!authorized){
       return <div className = "text-center mt-20"> You are not authorized to make blog posts.</div>
     }
-
+    */
+      
+      if (!user){
+        return <div className = "text-center mt-20"> You need to be signed in to make a post.</div>
+      }
     return (
         <div className="text-center mt-5 ">
             <h1>Form:</h1>
-            <form className = "m-auto flex flex-col" onSubmit={saveMessage}>
+            <form className = "m-auto flex flex-col space-y-4" onSubmit={saveMessage}>
                 {/* take in an image file */}
                 <div className = "mt-5">
                   <span className = "mr-3">Title Image:</span>
                   <input className = "w-56 max-w-4xl border h-9 m-auto"  onChange={(e)=>{setTitleImage(e.target.files[0])}} type = "file" placeholder = "Title Image"></input>
                 </div>
-                <div className = "flex m-auto">
-                <span className = " h-10 mt-5 w-24">Blog Images:</span>
-                <div className = "mt-5 m-auto w-60  mb-4 rounded-lg" >
-                  
-                  
-                  {blogImageForms}
-                  <div onClick = {addBlogImage} className = "cursor-pointer text-blue-600  hover:text-red-400" > Add another Blog Image:</div>
-                </div>
-                </div>
+                {/* <div className = "flex m-auto">
+                  <span className = " h-10 mt-5 w-24">Blog Images:</span>
+                  <div className = "mt-5 m-auto w-60  mb-4 rounded-lg" >
+                    
+                    
+                    {blogImageForms}
+                    <div onClick = {addBlogImage} className = "cursor-pointer text-blue-600  hover:text-red-400" > Add another Blog Image:</div>
+                  </div>
+                </div> */}
                 
                 
-                <input className = " w-64 border-2 border-gray-500 rounded-lg mb-4 h-9 m-auto pl-2" onChange={(e)=>{setTitle(e.currentTarget.value)}} value = {title} type = "text" placeholder = "Title"></input>
-                <input className = "w-64 border-2 border-gray-500 rounded-lg mb-4 h-9 m-auto pl-2" onChange={(e)=>{setDate(e.currentTarget.value)}} value = {date} type = "text" placeholder = "Date"></input>
-                <input className = "w-64 border-2 border-gray-500 rounded-lg mb-4 h-9 m-auto pl-2" onChange={(e)=>{setSummary(e.currentTarget.value)}} value = {summary} type = "text" placeholder = "Summary (Short)"></input>
+                <input className = " w-64 border-2 border-gray-500 rounded-lg  h-9 m-auto pl-2" onChange={(e)=>{setTitle(e.currentTarget.value)}} value = {title} type = "text" placeholder = "Title"></input>
+                <input className = "w-64 border-2 border-gray-500 rounded-lg h-9 m-auto pl-2" onChange={(e)=>{setDate(e.currentTarget.value)}} value = {date} type = "text" placeholder = "Date"></input>
+                <input className = "w-64 border-2 border-gray-500 rounded-lg h-9 m-auto pl-2" onChange={(e)=>{setSummary(e.currentTarget.value)}} value = {summary} type = "text" placeholder = "Summary (Short)"></input>
                 <textarea className = "w-8/12 m-auto p-3 max-w-4xl border-2 border-black rounded-lg h-24" onChange={(e)=>{setMessage(e.currentTarget.value)}} value = {message} type = "text" placeholder = "Blog Post"></textarea>
-                <input className = "mt-5 m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" type = 'submit' disabled = {!title|| !date || !message || disableSubmit} value = "Submit" />
+                <input className = "m-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" type = 'submit' disabled = {!title|| !date || !message || disableSubmit} value = "Submit" />
             </form>
+            <div className = "border-2 border-black rounded-md m-auto mt-3 w-fit p-4 flex flex-col space-y-3">
+              <div className = "underline">Tags to use:</div>
+              <div>{'<br/><br/> for 2 line breaks'}</div>
+              <div>{'<a href = {"link"}></a> for links'}</div>
+              <div>{'<u></u> for underlining'}</div>
+              <div>{'<strong></strong> for making stuff bold'}</div>
+              {/* <div>{'/img/ for inserting a blog image'}</div> */}
+            </div>
         </div>
     )
 }

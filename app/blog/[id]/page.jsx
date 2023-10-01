@@ -34,12 +34,18 @@ export default function Page({ params, searchParams }) {
     
     // const [loading, setLoading] = useState(true)
     // const [error, setError] = useState(null)
+
+    // add a new line if there is a <br> tag
     if (posts){
       let data = posts[params.id-1]
-      let text = data.text.split('<br>')
-      text = text.map((e,i)=>{
-        return (<p key = {i}>{e}<br/><br/></p>)
-      })
+      // let text = data.text.split('<br>')
+      // text = text.map((e,i)=>{
+      //   return (<p key = {i}>{e}<br/><br/></p>)
+      // })
+      let t = {__html: data.text}
+      let text = <p dangerouslySetInnerHTML={t} >{}</p>
+
+    // add a 
       
       return  (
         <div className = "">
@@ -47,7 +53,7 @@ export default function Page({ params, searchParams }) {
             <h1 className = "font-bold text-6xl mt-9">{data.title}</h1>
             <p className = "text-gray-500 text-lg mt-3">{data.summary}</p>
             <p className = "mt-3">{data.date}</p>
-            <div className = "mt-6  m-auto w-8/12 text-lg">{text}</div>
+            <div className = "mt-6  m-auto w-9/12 text-lg">{text}</div>
             <div className = "flex m-auto w-fit mb-20"> -  {data.name} 
               <Image alt = "This image failed to laoad" className = " ml-3 mr-3 rounded-full " src = {data.profilePicUrl} width = {33} height = {33}></Image> 
             </div>

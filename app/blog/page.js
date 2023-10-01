@@ -65,13 +65,21 @@ export default function Blog(){
                 }
             </div> 
             
+            {/* 
+            AUTHORIZING USERS IS CURRENTLY DISABLED
             {user  && authorizedIds && authorizedIds.includes(user.uid) ?
             <Link href = "/blog/post">
                 <button className="w-16 h-16 rounded-full absolute bottom-10 right-10 bg-blue-500 hover:bg-blue-700 text-white">
                 +
                 </button>      
             </Link>
-            : <></>}
+            : <></>} */}
+            
+            <Link href = "/blog/post">
+                <button className="w-16 h-16 rounded-full absolute bottom-10 right-10 bg-blue-500 hover:bg-blue-700 text-white">
+                +
+                </button>      
+            </Link>
         </div>
     )
 }
