@@ -57,7 +57,7 @@ export default function Blog(){
                 <br></br>
                 <br/>
              </div>
-            <div className = "flex justify-center mt-4 space-x-2  flex-wrap">
+            <div className = "flex justify-center mt-4 space-x-2 space-y-2 flex-wrap">
 
                 {posts.map((post,i) => {
                     return <span key = {i} className=''>{post}</span>
@@ -87,7 +87,7 @@ export default function Blog(){
 function BlogCard (props){
     let blogUrl = "/blog/"+props.postNumber
     return (
-        <div className="items-start max-w-xs w-80  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="items-start max-w-xs w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href={blogUrl}>
                 {/* <Image className=" w-60 rounded-t-lg" src={props.titleImage} alt="" /> */}
                 {props.titleImage ? (<picture className='rounded-t-lg'>
