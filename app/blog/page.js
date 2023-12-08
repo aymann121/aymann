@@ -53,7 +53,7 @@ export default function Blog(){
                 Welcome to my blog! 
                 <br/> 
                 Here I'll post about different things that interest me. 
-                <br/>(I'll try to post something at least once a week.)
+                <br/>(I'll try not to go too long without posting)
                 <br></br>
                 <br/>
              </div>
