@@ -39,7 +39,8 @@ export default function Login(){
           Sign in with Apple
         </button> */}
       </div>
-      <div className = "text-center text-md">Here you can login to use the superchat app or write a blogpost if you have permission</div>
+      <div className = "text-center text-md">Here you can login to use the superchat app or write a blogpost if you have permission.</div>
+      <div className = "text-center text-md">(Don't worry I don't have a mailing list or anything annoying).</div>
     </div>
     
   );

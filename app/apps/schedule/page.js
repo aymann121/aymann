@@ -149,7 +149,7 @@ export default function Schedule() {
         
         <div >
 
-            <div className = "text-center mt-10"> This is a scheduling app I built to keep track of my schedule when I was in high school.</div>
+            <div className = "text-center mt-10"> This is a scheduling app I built to keep track of my schedule when I was in high school. </div>
             <div  className = "bg-gray-200 p-5  rounded-lg max-w-2xl m-auto mt-10 text-xl">
                     <div className = "pt-0 text-center text-2xl mb-4">
                         ICCSD School Schedule

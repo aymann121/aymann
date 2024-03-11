@@ -1,7 +1,9 @@
-import c4Icon from "./gameIcons/connect4.png"
-import golIcon from "./gameIcons/GameOfLife.png"
-import ticTacToe from "./gameIcons/TicTacToe.png"
-import snakeIcon from "./gameIcons/Snake.png"
+import c4Icon from "./appIcons/connect4.png"
+import golIcon from "./appIcons/GameOfLife.png"
+import ticTacToe from "./appIcons/TicTacToe.png"
+import snakeIcon from "./appIcons/Snake.png"
+import chatIcon from "./appIcons/chat.png"
+import calendarIcon from "./appIcons/calendar.png"
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -9,11 +11,11 @@ let games = [
     {
         image: c4Icon,
         title: "Connect 4",
-        link: '/games/connect4'
+        link: '/apps/connect4'
     },{
         image: snakeIcon,
         title: "Snake",
-        link: '/games/snake'
+        link: '/apps/snake'
     },
     // {
     //     image: golIcon,
@@ -23,10 +25,18 @@ let games = [
     {
         image: ticTacToe,
         title: "Tic Tac Toe",
-        link: '/games/tictactoe'
+        link: '/apps/tictactoe'
     },
-   
-
+    {
+        image: chatIcon,
+        title: "Chat",
+        link: '/apps/superchat'
+    },
+    {
+        image: calendarIcon,
+        title: "Schedule",
+        link: '/apps/schedule'
+    }
 ]
 const Game = (props) => {
     let width = 180

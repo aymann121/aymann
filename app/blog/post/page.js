@@ -136,7 +136,7 @@ export default function Form() {
     }
     // see if the current user is authorized
     /*
-    *** AUTHORIZING USERS IS CURRENTLY DISABLED *** 
+    *** AUTHORIZING USERS IS CURRENTLY DISABLED (FOR Showing off purposes)*** 
 
     let [authorized, setAuthorized] = useState(false);
     useEffect( () =>{

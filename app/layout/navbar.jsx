@@ -12,25 +12,25 @@ const pages = [
         path: '/'
     },
     {
-        text: 'Games',
-        path: '/games'
-    },
-    {
-        text: 'Superchat',
-        path: '/superchat'
+        text: 'Apps',
+        path: '/apps'
     },
     // {
-    //     text: 'Blog',
-    //     path: '/blog'
+    //     text: 'Superchat',
+    //     path: '/superchat'
     // },
+    {
+        text: 'Blog',
+        path: '/blog'
+    },
     {
         text: 'About',
         path: '/about'
     },
-    {
-        text: 'Schedule',
-        path: '/schedule'
-    }
+    // {
+    //     text: 'Schedule',
+    //     path: '/schedule'
+    // }
 
 ]
 

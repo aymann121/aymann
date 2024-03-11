@@ -23,7 +23,7 @@ export default function About(props){
                  I used Next.js and TailwindCSS to develop the front end and used Firebase and Node.js when making the backend. I've built a few small games, a chat app, an authentication system, a server to keep track of leaderboards, a working blog that I can post to from the website, and a bell schedule app that I used when I was in high school.
             </p>
             <br />
-            <p> Here's a link to the Github Repo: <Link className = "text-pink-600" href={"https://github.com/IcyBroom/aymann"}>https://github.com/IcyBroom/aymann</Link></p>
+            <p> Here's a link to the Github Repo: <Link className = "text-pink-600" href={"https://github.com/aymann121/aymann"}>https://github.com/aymann121/aymann</Link></p>
         </div>
     )
 }
