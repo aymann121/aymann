@@ -4,6 +4,7 @@ import ticTacToe from "./appIcons/TicTacToe.png"
 import snakeIcon from "./appIcons/Snake.png"
 import chatIcon from "./appIcons/chat.png"
 import calendarIcon from "./appIcons/calendar.png"
+import dad from "./appIcons/dad.webp"
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -36,6 +37,11 @@ let games = [
         image: calendarIcon,
         title: "Schedule",
         link: '/apps/schedule'
+    },
+    {
+        image: dad,
+        title: "Dad Jokes",
+        link: '/apps/dadJokes'
     }
 ]
 const Game = (props) => {
