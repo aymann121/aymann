@@ -52,7 +52,7 @@ export default function Footer() {
                 <div className = "flex w-full text-center  justify-center space-x-7">
                     {footerLinks.map((page, index) => {
                             return (
-                                <Link className = "rounded hover:bg-gray-400" href = {page.link} key = {index}>
+                                <Link target="_blank" className = "rounded hover:bg-gray-400" href = {page.link} key = {index}>
                                     <Image src={page.image} alt={page.name} width={50}  />
                                 </Link>
                             )

@@ -57,7 +57,7 @@ function SlideCard(props){
       <div className = " w-[calc(100%)] border-t-2 border-gray-500 " />
       <div className = "mt-1 flex mb-2">
         <div className = {(props?.direction == "left" ? "mr-3":"ml-3") + "  font-bold"}>{props.title} </div>
-        {props.link ? <Link className = {(props?.direction == "left" ? "mr-3":"") + "   my-auto ml-auto  rounded hover:bg-gray-400" }href = {""} >
+        {props.link ? <Link  target="_blank" className = {(props?.direction == "left" ? "mr-3":"") + "   my-auto ml-auto  rounded hover:bg-gray-400" }href = {props.link} >
           <Image src={github} alt={props.link} width={23}  />
         </Link>:<></>}
       </div>
