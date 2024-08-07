@@ -7,8 +7,20 @@ import calendarIcon from "./appIcons/calendar.png"
 import dad from "./appIcons/dad.webp"
 import Image from 'next/image'
 import Link from 'next/link';
+import blog from "./appIcons/blog.webp"
+import login from "./appIcons/login.png"
 
 let games = [
+    {
+        image: blog,
+        title: "Blog",
+        link: '/apps/blog'
+    },
+    {
+        image: login,
+        title: "Login / Profile",
+        link: '/apps/login'
+    },
     {
         image: c4Icon,
         title: "Connect 4",

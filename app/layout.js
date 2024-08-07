@@ -14,12 +14,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className = "dark">
+    <html lang="en" className = "h-full">
       <Head />
-      <body>
+      <body className = "flex flex-col h-full">
         <AuthContextProvider>
           <Navbar />
-          {children}
+          <main >{children}</main>
         </AuthContextProvider>
         <Footer />
       </body>

@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from 'react';
-import { UserAuth } from '../context/AuthContext';
+import { UserAuth } from '../../context/AuthContext';
 // import Router from 'next/router';
 import { useRouter } from 'next/navigation'
 
@@ -10,7 +10,7 @@ export default function Login(){
   let router = useRouter()
   useEffect(() => {
     if (user != null) {
-        router.push('/')
+        router.push('/apps/profile')
     }
   }, [user]);
 
