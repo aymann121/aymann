@@ -82,10 +82,11 @@ export default function Home() {
       
       <div className = "w-full">
         <div className = "flex w-fit m-auto">
-          <div className = "font-bold  text-7xl sm:text-9xl  mt-auto mb-auto mr-10 sm:mr-20">Hi,</div> 
+          <div className = "font-bold  text-7xl sm:text-9xl  mt-auto mb-auto sm:mr-6 mr-10 hidden sm:block">Hi,</div> 
           <Image className = "m-auto rounded-2xl w-[15rem] sm:w-[19rem]" src = {ayman} width = {300}></Image>
         </div>
-        <div className = "font-bold text-6xl sm:text-8xl md:text-9xl m-auto text-center mt-7">I'm Ayman.</div> 
+        <div className = "font-bold text-6xl sm:text-8xl md:text-9xl m-auto text-center mt-7 hidden sm:block">I'm Ayman.</div> 
+        <div className = "font-bold text-5xl m-auto text-center mt-7 sm:hidden">Hi, I'm Ayman.</div> 
       </div>
 
       <div className='fade mt-14'>
