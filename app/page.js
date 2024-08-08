@@ -99,14 +99,14 @@ export default function Home() {
 
       <div className = "fade  relative w-full">
         <div className = "bold text-4xl text-center mb-5 ">Experience</div>
-        <div className = " m-auto w-0 h-[40rem] lg:h-[30rem] border-l-2 border-gray-500 " />
+        <div className = "hidden md:block m-auto w-0 h-[40rem] lg:h-[30rem] border-l-2 border-gray-500 " />
 
-        <SlideCard direction = "left" className = "absolute w-1/2 left-[calc(0%)] bottom-40" images = {[matplotlib, numpy, cern, python, jupyter]} title = "FCC Analysis, Undergraduate Researcher"> 
+        <SlideCard direction = "left" className = "m-auto mb-10 w-full md:absolute md:w-1/2  left-[calc(0%)] bottom-40" images = {[matplotlib, numpy, cern, python, jupyter]} title = "FCC Analysis, Undergraduate Researcher"> 
           Used Collider Monte Carlo Simulation Samples to reconstruct the mass of the W Boson. One method includes measuring the effective cross sections of quarks the W boson decays into by finding which energy levels return maximal values. Presented at the Annual FCC Conference at MIT (April 2024).
         Research included working with tools like Jupyter Notebook, SSH, Python, and CERN virtual environment.
         </SlideCard>
 
-        <SlideCard direction = "right" className = "absolute w-1/2 right-[calc(0%)] bottom-24" images = {[git, jira, angular, mongodb]} title = "Birth By Us, Software Engineering Intern"> 
+        <SlideCard direction = "right" className = "m-auto mb-10 w-full md:absolute md:w-1/2  right-[calc(0%)] bottom-24" images = {[git, jira, angular, mongodb]} title = "Birth By Us, Software Engineering Intern"> 
         MIT PKG Social impact internship with the purpose of developing an app to help black mothers through the pregnancy and postpartum process. Worked on projects helping develop the backend and use mongoose APIs to pull data to the client side using angular. Also used external front-end libraries like pdfmake and chart.js to develop informational features.
         </SlideCard>
 
@@ -114,9 +114,9 @@ export default function Home() {
 
       <div className = "fade  relative w-full">
         <div className = "bold text-4xl text-center my-4">Projects</div>
-        <div className = " m-auto w-0 h-[48rem] lg:h-[43rem] border-l-2 border-gray-500 " />
+        <div className = "hidden md:block m-auto w-0 h-[48rem] lg:h-[43rem] border-l-2 border-gray-500 " />
         
-        <SlideCard link = "https://github.com/aymann121/aymann" direction = "left" className = " absolute w-1/2 left-[calc(0%)] bottom-60" images = {[]} title = "This Website ✦"> 
+        <SlideCard link = "https://github.com/aymann121/aymann" direction = "left" className = "m-auto mb-10 w-full md:absolute md:w-1/2 left-[calc(0%)] bottom-60" images = {[]} title = "This Website ✦"> 
         <div>
           <ul className="list-disc ml-2 space-y-2 mb-2">
             <li>I built it to learn more about web development and have a plact to display my experience.</li>
@@ -160,13 +160,13 @@ export default function Home() {
           </div> */}
         </SlideCard>
 
-        <SlideCard link = "https://github.com/aymann121/WARP" direction = "right" className = "absolute w-1/2 right-[calc(0%)] bottom-40" images = {[java, junit, git]} title = "WARP Project "> 
+        <SlideCard link = "https://github.com/aymann121/WARP" direction = "right" className = "m-auto mb-10 w-full md:absolute md:w-1/2  right-[calc(0%)] bottom-40" images = {[java, junit, git]} title = "WARP Project "> 
             Project Completed at the University of Iowa (during highschool). Code forked from Steve Goddard's base. The WARP sensor network research project. 
             Much of the class was focused on developing skill in Java, Git Collaboration, JUnit Testing, Code Refactoring, UML Diagrams, and the software construction life Cycle (Sprint Model).
             Also developed greater understanding of WARP module relationships and interactions.
         </SlideCard>
 
-        <SlideCard direction = "left" className = "absolute w-1/2 left-[calc(0%)] bottom-10" images = {[git, python, spotify]} title = "Spotify Web Scraper (⚠️ In Progress) "> 
+        <SlideCard direction = "left" className = "m-auto mb-10 w-full md:absolute md:w-1/2  left-[calc(0%)] bottom-10" images = {[git, python, spotify]} title = "Spotify Web Scraper (⚠️ In Progress) "> 
         Using Spotify api to scrape playlists and make equivalents on youtube music. (For downloadability and becuase you can use YT Music for free.) 
         </SlideCard>
 
