@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import icybroom from './icybroom.png'
+// import icybroom from './icybroom.png'
 import Link from 'next/link'
 import {UserAuth} from '../context/AuthContext'
 import { useState } from 'react'
@@ -13,6 +13,11 @@ const pages = [
     //     path: '/'
     // },
     {
+        text: "Resume",
+        path: '/Resume.pdf',
+        target: '_blank'
+    },
+    {
         text: 'Contact',
         path: 'mailto:noreldaim.ayman@gmail.com'
     },
@@ -20,6 +25,7 @@ const pages = [
         text: 'Old Apps',
         path: '/apps'
     },
+    
     // {
     //     text: 'Superchat',
     //     path: '/superchat'
@@ -72,7 +78,7 @@ export default function Navbar() {
                         {pages.map((page, index) => {
                             return (
                                 <li key = {index}>
-                                    <Link href={page.path} className=" text-gray-700 rounded hover:bg-gray-100 hover:bg-transparent border-0 hover:text-blue-700 md:p-0   dark:hover:bg-gray-700 dark:hover:text-white dark:hover:bg-transparent">{page.text}</Link>
+                                    <Link href={page.path} target = {page?.target}className=" text-gray-700 rounded hover:bg-gray-100 hover:bg-transparent border-0 hover:text-blue-700 md:p-0   dark:hover:bg-gray-700 dark:hover:text-white dark:hover:bg-transparent">{page.text}</Link>
                                 </li>
                             )
                         })}

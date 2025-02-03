@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import icybroom from './icybroom.png'
 import Link from 'next/link'
 import twitterIcon from './Icons/x.png'
 import googleIcon from './Icons/gmailIcon.png'

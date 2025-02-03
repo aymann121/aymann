@@ -1,11 +1,11 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import Navbar from './layout/navbar'
 import Footer from './layout/footer'
 import {AuthContextProvider} from './context/AuthContext'
 import Head from './head'
-
-const inter = Inter({ subsets: ['latin'] })
+// 
+// const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata = {
 //   title: 'Create Next App',
