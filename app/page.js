@@ -32,6 +32,8 @@ import junit from "../public/junit.png";
 import github from "./layout/Icons/github.png";
 
 function SlideCard(props) {
+
+  let iconComp = <Image src = {props.icon} className = "rounded-sm w-6 h-6 border-zinc-950 mr-2"/>
   return (
     <div className={props.className}>
       <SlideIn direction={props.direction}>
@@ -45,23 +47,24 @@ function SlideCard(props) {
           >
             {/* <span> */}
 
-            {props?.icon ? <Image src = {props.icon} className = "rounded-sm w-6 h-6 border-zinc-950 mr-2"/> : <></>}
+            {props?.icon ? props.iconLink ? <Link href={props.iconLink}> {iconComp}</Link> : iconComp : <></>}
+
             <div className = "m-auto">
               {props.title}{" "}
               </div>
             {/* </span> */}
             
           </div>
-          {props.link ? (
+          {props.ghlink ? (
             <Link
               target="_blank"
               className={
                 (props?.direction == "left" ? "mr-3" : "") +
                 "   my-auto ml-auto  rounded hover:bg-gray-400"
               }
-              href={props.link}
+              href={props.ghlink}
             >
-              <Image src={github} alt={props.link} width={23} />
+              <Image src={github} alt={props.ghlink} width={23} />
             </Link>
           ) : (
             <></>
@@ -156,6 +159,7 @@ export default function Home() {
           title="Birth By Us, Software Engineering Intern"
           subtitle="Sacramento, California (June 2024 - August 2024)"
           icon = {bbu}
+          iconLink = "https://www.birthbyus.com/"
         >
           MIT PKG Social impact internship with the purpose of developing an app
           to help black mothers through the pregnancy and postpartum process.
@@ -172,6 +176,7 @@ export default function Home() {
           title="Decentralized AI Research at MIT’s Media Lab"
           subtitle="Cambridge, Massachusetts (August 2024 - May 2025)"
           icon = {medialab}
+          iconLink = "https://www.media.mit.edu/"
         >
           <div>
             • Trained machine learning models in a decentralized manner with
@@ -192,10 +197,11 @@ export default function Home() {
         <SlideCard
           direction="right"
           className="m-auto mb-10 w-full md:absolute md:w-1/2  right-[calc(0%)] lg:top-[28rem] top-[33rem]"
-          images={[gcloud, spanner]} // add pytorch, and react native logos
-          title="Google Step Software Engineering Intern (Summer 2025)"
+          images={[gcloud, spanner]} // add pytorch, and react native 
+          title="Google Step Software Engineering Intern"logos
           subtitle="Seattle, Washington (June 2025 - September 2025) "
           icon = {google}
+          iconLink = "https://careers.google.com/students/"
         >
           Project aimed to enhance the reliability of the CI system and improve
           developer experience by proactively preventing the introduction of new
@@ -211,7 +217,7 @@ export default function Home() {
         <div className="hidden md:block m-auto w-0 h-[48rem] lg:h-[43rem] border-l-2 border-gray-500 " />
 
         <SlideCard
-          link="https://github.com/aymann121/aymann"
+          ghlink="https://github.com/aymann121/aymann"
           direction="left"
           className="m-auto mb-10 w-full md:absolute md:w-1/2 left-[calc(0%)] bottom-60"
           images={[]}
@@ -272,7 +278,7 @@ export default function Home() {
         </SlideCard>
 
         <SlideCard
-          link="https://github.com/aymann121/WARP"
+          ghlink="https://github.com/aymann121/WARP"
           direction="right"
           className="m-auto mb-10 w-full md:absolute md:w-1/2  right-[calc(0%)] bottom-40"
           images={[java, junit, git]}
