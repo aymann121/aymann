@@ -11,16 +11,16 @@ import blog from "./appIcons/blog.webp"
 import login from "./appIcons/login.png"
 
 let games = [
-    {
-        image: blog,
-        title: "Blog",
-        link: '/apps/blog'
-    },
-    {
-        image: login,
-        title: "Login / Profile",
-        link: '/apps/login'
-    },
+    // {
+    //     image: blog,
+    //     title: "Blog",
+    //     link: '/apps/blog'
+    // },
+    // {
+    //     image: login,
+    //     title: "Login / Profile",
+    //     link: '/apps/login'
+    // },
     {
         image: c4Icon,
         title: "Connect 4",
@@ -40,11 +40,11 @@ let games = [
         title: "Tic Tac Toe",
         link: '/apps/tictactoe'
     },
-    {
-        image: chatIcon,
-        title: "Chat",
-        link: '/apps/superchat'
-    },
+    // {
+    //     image: chatIcon,
+    //     title: "Chat",
+    //     link: '/apps/superchat'
+    // },
     {
         image: calendarIcon,
         title: "Schedule",
