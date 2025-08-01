@@ -21,7 +21,7 @@ import {
   // for the future
   // import { getMessaging, getToken, onMessage } from 'firebase/messaging';
    import { getPerformance } from 'firebase/performance';
-  import {UserAuth} from '../../context/AuthContext'
+  import {UserAuth} from '../../../context/AuthContext'
   import './scrollbar.css'
   import { useEffect, useState, useRef } from 'react';
   import { getAuth, onAuthStateChanged } from "firebase/auth";

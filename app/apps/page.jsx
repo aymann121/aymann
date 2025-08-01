@@ -1,59 +1,24 @@
-import c4Icon from "./appIcons/connect4.png"
 import golIcon from "./appIcons/GameOfLife.png"
-import ticTacToe from "./appIcons/TicTacToe.png"
-import snakeIcon from "./appIcons/Snake.png"
-import chatIcon from "./appIcons/chat.png"
-import calendarIcon from "./appIcons/calendar.png"
-import dad from "./appIcons/dad.webp"
 import Image from 'next/image'
 import Link from 'next/link';
-import blog from "./appIcons/blog.webp"
-import login from "./appIcons/login.png"
+import markovIcon from "./appIcons/Markov.png"
+import toysIcon from "./appIcons/toys.webp"
 
 let games = [
-    // {
-    //     image: blog,
-    //     title: "Blog",
-    //     link: '/apps/blog'
-    // },
-    // {
-    //     image: login,
-    //     title: "Login / Profile",
-    //     link: '/apps/login'
-    // },
     {
-        image: c4Icon,
-        title: "Connect 4",
-        link: '/apps/connect4'
-    },{
-        image: snakeIcon,
-        title: "Snake",
-        link: '/apps/snake'
-    },
-    // {
-    //     image: golIcon,
-    //     title: "Conway's Game of Life",
-    //     link: '/games/gameOfLife'
-    // },
-    {
-        image: ticTacToe,
-        title: "Tic Tac Toe",
-        link: '/apps/tictactoe'
-    },
-    // {
-    //     image: chatIcon,
-    //     title: "Chat",
-    //     link: '/apps/superchat'
-    // },
-    {
-        image: calendarIcon,
-        title: "Schedule",
-        link: '/apps/schedule'
+        image: golIcon,
+        title: "Conway's Game of Life",
+        link: '/apps/gameOfLife'
     },
     {
-        image: dad,
-        title: "Dad Jokes",
-        link: '/apps/dadJokes'
+        image: markovIcon,
+        title: "Markov Chains",
+        link: '/apps/markov'
+    },
+    {
+        image: toysIcon,
+        title: "Toys",
+        link: '/apps/toys'
     }
 ]
 const Game = (props) => {

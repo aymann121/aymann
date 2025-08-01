@@ -21,7 +21,7 @@ import {
     uploadBytesResumable,
     getDownloadURL,
   } from 'firebase/storage';
-  import {UserAuth} from '../../context/AuthContext'
+  import {UserAuth} from '../../../context/AuthContext'
   import { useEffect, useState} from 'react'
 
 export default function Blog(){

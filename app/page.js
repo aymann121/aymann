@@ -2,7 +2,7 @@
 import ayman from "./ayman.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import Blog from "./apps/blog/page.js";
+import Blog from "./apps/toys/blog/page.js";
 import "./homestyles.css";
 import { useRef, useState, useEffect } from "react";
 import AnimatedComponent from "./components/SlideIn";
@@ -33,7 +33,7 @@ import github from "./layout/Icons/github.png";
 
 function SlideCard(props) {
 
-  let iconComp = <Image src = {props.icon} className = "rounded-sm w-6 h-6 border-zinc-950 mr-2"/>
+  let iconComp = <Image alt = "icon" src = {props.icon} className = "rounded-sm w-6 h-6 border-zinc-950 mr-2"/>
   return (
     <div className={props.className}>
       <SlideIn direction={props.direction}>
@@ -89,8 +89,8 @@ function SlideCard(props) {
         <Image src = {cern}  height = {50}/>
         <Image src = {python}  height = {50}/>
         <Image src = {jupyter}  height = {50}/> */}
-          {props?.images?.map((ele) => (
-            <Image src={ele} height={50} />
+          {props?.images?.map((ele, index) => (
+            <Image alt = "icon" key = {index} src={ele} height={50} />
           ))}
         </div>
         {/* </div> */}
@@ -108,6 +108,7 @@ export default function Home() {
             Hi,
           </div>
           <Image
+            alt="Ayman"
             className="m-auto rounded-2xl w-[15rem] sm:w-[19rem]"
             src={ayman}
             width={300}
@@ -246,11 +247,11 @@ export default function Home() {
               <div className="text-center">Frontend</div>
               <div className="flex space-x-5 ">
                 <div className="text-center">
-                  <Image src={react} height={50} />
+                  <Image alt = "react" src={react} height={50} />
                   React
                 </div>
                 <div className="text-center ">
-                  <Image src={tailwind} height={50} />
+                  <Image alt = "tailwind" src={tailwind} height={50} />
                   Tailwind
                 </div>
               </div>
@@ -260,11 +261,11 @@ export default function Home() {
               <div className="text-center">Backend</div>
               <div className="flex space-x-5">
                 <div className="text-center ">
-                  <Image src={firebase} height={50} />
+                  <Image alt = "firebase" src={firebase} height={50} />
                   Firebase
                 </div>
                 <div className="text-center">
-                  <Image src={node} height={50} />
+                  <Image alt = "node" src={node} height={50} />
                   Node
                 </div>
               </div>

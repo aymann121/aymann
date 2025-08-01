@@ -22,7 +22,7 @@ const pages = [
         path: 'mailto:noreldaim.ayman@gmail.com'
     },
     {
-        text: 'Old Apps',
+        text: 'Apps',
         path: '/apps'
     },
     
