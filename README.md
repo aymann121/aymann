@@ -8,7 +8,7 @@ Visit the website: [aymann.vercel.app](https://aymann.vercel.app)
 
 I'm a Computer Science student at MIT passionate about software development, machine learning, and data science. This website serves as both my portfolio and a platform for various interactive applications and games.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Frontend**: Next.js, React, Tailwind CSS
 - **Backend**: Node.js, Express
@@ -16,9 +16,9 @@ I'm a Computer Science student at MIT passionate about software development, mac
 - **Deployment**: Vercel
 - **Additional**: Canvas API, WebSockets, Real-time data visualization
 
-## 📱 Applications & Features
+## Applications & Features
 
-### 🎮 Games
+### Games
 - **Conway's Game of Life**: Interactive cellular automaton with brush size controls, real-time simulation, and drag-to-draw functionality
 - **Tic Tac Toe**: Classic game with AI opponent
 - **Snake**: Retro snake game with leaderboard tracking
