@@ -25,7 +25,7 @@ I'm a Computer Science student at MIT passionate about software development, mac
 - **Connect 4**: Two-player strategy game
 - **Pong**: Classic arcade game with multiplayer support
 
-### 🔬 Scientific Applications
+### Scientific Applications
 - **Markov Chain Monte Carlo Simulator**: Advanced statistical computing tool featuring:
   - Metropolis-Hastings algorithm implementation
   - Real-time state transition visualization
@@ -70,7 +70,7 @@ I'm a Computer Science student at MIT passionate about software development, mac
 - **Error Handling**: Graceful error management and user notifications
 - **Performance Optimization**: Efficient rendering and data processing
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 app/
@@ -129,13 +129,7 @@ npm run dev
 - **State Management**: Optimized React state updates
 - **Bundle Optimization**: Code splitting and tree shaking
 
-## Future Enhancements
 
-- [ ] Additional scientific computing tools
-- [ ] More multiplayer games
-- [ ] Enhanced data visualization features
-- [ ] Mobile app versions
-- [ ] API documentation
 
 ## Contributing
 
