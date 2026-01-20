@@ -18,6 +18,8 @@ export default function StackRank() {
   const [newStackName, setNewStackName] = useState("");
   const [dragData, setDragData] = useState(null); // { itemId, sourceStackId: string | null }
   const [hoverPosition, setHoverPosition] = useState(null); // { stackId: string, index: number } | null
+  const [editingStackId, setEditingStackId] = useState(null); // stackId being edited
+  const [editingStackName, setEditingStackName] = useState(""); // temporary name while editing
 
   // Load from localStorage
   useEffect(() => {
@@ -133,6 +135,53 @@ export default function StackRank() {
 
   const handleDeleteStack = (stackId) => {
     setStacks((prev) => prev.filter((s) => s.id !== stackId));
+  };
+
+  const handleStartRenameStack = (stackId, currentName) => {
+    setEditingStackId(stackId);
+    setEditingStackName(currentName);
+  };
+
+  const handleSaveRenameStack = (stackId) => {
+    const newName = editingStackName.trim();
+    if (!newName) {
+      setEditingStackId(null);
+      return;
+    }
+
+    // Check if name is unique (excluding the current stack)
+    const existingNames = new Set(
+      stacks.filter((s) => s.id !== stackId).map((s) => s.name)
+    );
+
+    if (existingNames.has(newName)) {
+      // Name is duplicate, don't save
+      setEditingStackId(null);
+      return;
+    }
+
+    setStacks((prev) =>
+      prev.map((stack) =>
+        stack.id === stackId ? { ...stack, name: newName } : stack
+      )
+    );
+    setEditingStackId(null);
+    setEditingStackName("");
+  };
+
+  const handleCancelRenameStack = () => {
+    setEditingStackId(null);
+    setEditingStackName("");
+  };
+
+  const handleRemoveItemFromStack = (stackId, itemId) => {
+    setStacks((prev) =>
+      prev.map((stack) =>
+        stack.id === stackId
+          ? { ...stack, itemIds: stack.itemIds.filter((id) => id !== itemId) }
+          : stack
+      )
+    );
   };
 
   const startDragFromPool = (itemId) => {
@@ -309,9 +358,9 @@ export default function StackRank() {
                         draggable
                         onDragStart={() => startDragFromPool(item.id)}
                         onDragEnd={clearDrag}
-                        className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-300 cursor-grab hover:border-blue-400 hover:bg-blue-50 text-sm"
+                        className="group flex items-center gap-2 px-3 py-1.5 rounded-md bg-white border border-gray-300 cursor-grab hover:border-blue-400 hover:bg-blue-50 text-sm"
                       >
-                        <span className="truncate max-w-[10rem]">
+                        <span className="break-words">
                           {item.name}
                         </span>
                         <button
@@ -381,16 +430,48 @@ export default function StackRank() {
                     style={{ maxWidth }}
                     onDrop={(e) => handleDropOnStack(e, stack.id)}
                   >
-                  <div className="flex items-center mb-2">
-                    <div className="font-semibold flex-1 truncate">
-                      {stack.name}
-                    </div>
-                    <button
-                      onClick={() => handleDeleteStack(stack.id)}
-                      className="text-xs text-red-600 hover:text-red-500"
-                    >
-                      Delete
-                    </button>
+                  <div className="flex items-center mb-2 gap-2">
+                    {editingStackId === stack.id ? (
+                      <>
+                        <input
+                          type="text"
+                          value={editingStackName}
+                          onChange={(e) => setEditingStackName(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              handleSaveRenameStack(stack.id);
+                            } else if (e.key === "Escape") {
+                              handleCancelRenameStack();
+                            }
+                          }}
+                          onBlur={() => handleSaveRenameStack(stack.id)}
+                          autoFocus
+                          className="flex-1 px-2 py-1 text-sm font-semibold rounded bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <div className="font-semibold flex-1 truncate">
+                          {stack.name}
+                        </div>
+                        <button
+                          onClick={() =>
+                            handleStartRenameStack(stack.id, stack.name)
+                          }
+                          className="text-xs text-blue-600 hover:text-blue-500"
+                          title="Rename stack"
+                        >
+                          ✎
+                        </button>
+                        <button
+                          onClick={() => handleDeleteStack(stack.id)}
+                          className="text-xs text-red-600 hover:text-red-500"
+                          title="Delete stack"
+                        >
+                          ✕
+                        </button>
+                      </>
+                    )}
                   </div>
                   <div
                     className="flex-1 min-h-[3rem] rounded-md bg-white border border-dashed border-gray-300 px-2 py-2 relative"
@@ -438,14 +519,26 @@ export default function StackRank() {
                                 onDrop={(e) =>
                                   handleDropOnItem(e, stack.id, index)
                                 }
-                                className="flex items-center justify-between px-3 py-1.5 rounded-md bg-white border border-gray-300 cursor-grab hover:border-blue-400 hover:bg-blue-50 text-sm relative z-0"
+                                className="group/item flex items-center justify-between px-3 py-1.5 rounded bg-white border border-gray-300 cursor-grab hover:border-blue-400 hover:bg-blue-50 text-sm relative z-0"
                               >
-                                <span className="truncate mr-2">
+                                <span className="break-words mr-2 flex-1">
                                   {item.name}
                                 </span>
-                                <span className="text-xs text-gray-500">
-                                  #{index + 1}
-                                </span>
+                                <div className="flex items-center gap-2">
+                                  <span className="text-xs text-gray-500">
+                                    #{index + 1}
+                                  </span>
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      handleRemoveItemFromStack(stack.id, itemId);
+                                    }}
+                                    className="opacity-0 group-hover/item:opacity-100 text-xs text-red-600 hover:text-red-500 transition-opacity"
+                                    title="Remove from stack"
+                                  >
+                                    ✕
+                                  </button>
+                                </div>
                               </div>
                               {showIndicatorBelow && (
                                 <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full z-10 shadow-lg shadow-blue-500/30" />
