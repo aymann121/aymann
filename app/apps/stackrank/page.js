@@ -238,16 +238,24 @@ export default function StackRank() {
 
   const handleDropOnStack = (e, stackId) => {
     e.preventDefault();
-    // Drop to end of stack
+    // Drop at the current hover position (fallback to end of stack)
     const stack = stacks.find((s) => s.id === stackId);
-    const index = stack ? stack.itemIds.length : 0;
+    const fallbackIndex = stack ? stack.itemIds.length : 0;
+    const index =
+      hoverPosition?.stackId === stackId ? hoverPosition.index : fallbackIndex;
     insertItemIntoStack(stackId, index);
     setHoverPosition(null);
   };
 
   const handleDropOnItem = (e, stackId, targetIndex) => {
     e.preventDefault();
-    insertItemIntoStack(stackId, targetIndex);
+    // Prevent bubbling to the stack container, which would also drop-to-end.
+    e.stopPropagation();
+
+    // Use the computed hover insertion index (top/bottom half), fallback to passed index.
+    const index =
+      hoverPosition?.stackId === stackId ? hoverPosition.index : targetIndex;
+    insertItemIntoStack(stackId, index);
     setHoverPosition(null);
   };
 
