@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import markovIcon from "./appIcons/Markov.png"
 import toysIcon from "./appIcons/toys.webp"
+import stackrankIcon from "./appIcons/stackrank.png"
 
 let games = [
     {
@@ -14,6 +15,11 @@ let games = [
         image: markovIcon,
         title: "Markov Chains",
         link: '/apps/markov'
+    },
+    {
+        image: toysIcon,
+        title: "Stack Ranker",
+        link: '/apps/stackrank'
     },
     {
         image: toysIcon,
